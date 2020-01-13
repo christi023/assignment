@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 //const api = require('../utils/api');
 const Schema = mongoose.Schema;
 
-// Movie Schema
+// Created a Movie schema for our movie info model
 const MovieSchema = new Schema({
   title: {
     type: String,
@@ -20,6 +20,9 @@ const MovieSchema = new Schema({
   genre: {
     type: String,
     required: true,
+  },
+  poster: {
+    type: String,
   },
   hasSeen: {
     type: Boolean,
@@ -43,3 +46,7 @@ const MovieSchema = new Schema({
 movie.save();*/
 
 module.exports = mongoose.model('Movie', MovieSchema);
+/*module.exports.getCompanies = function(callback, limit){
+  Company.find(callback).limit(limit);
+  }
+  */

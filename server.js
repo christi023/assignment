@@ -1,14 +1,23 @@
-//const Joi = require('joi');
+const Joi = require('joi');
+//Joi.objectId = require('joi-objectid')(Joi);
 const express = require('express');
-const movies = require('./routes/movies');
+const movie = require('./routes/movie');
+const users = require('./routes/users');
+const auth = require('./routes/auth');
 const path = require('path');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const config = require('config');
 const connectDB = require('./config/db');
 //const handlebars = require('express-handlebars');
 
 // load env vars
 dotenv.config({ path: './config/config.env' });
+
+if (!config.get('jwtSecret')) {
+  console.error('FATAL ERROR: Key is not valid.');
+  process.exit(1);
+}
 
 // Connect to database
 connectDB();
@@ -17,30 +26,26 @@ const app = express();
 //body parser adding middleware
 app.use(express.json());
 
+app.get('/', function(req, res) {
+  res.json({ movies: 'Build your movie list' });
+});
+
 // Enable cors
 app.use(cors());
-/*app.set('views', path.join(__dirname, '/views'));
-app.engine(
-  'hbs',
-  handlebars({
-    extname: 'hbs',
-    defaultLayout: 'mainLayout',
-    layoutsDir: __dirname + '/views/layouts/',
-  }),
-);
-app.set('view engine', 'hbs');*/
 
-// Routes
-app.use('/api/movies', movies, require('./routes/movies'));
+// Routes and required routes
 
-app.use(function(err, req, res, next) {
+app.use('/api/movie', movie);
+app.use('/api/users', users);
+app.use('/api/auth', auth);
+/*app.use(function(err, req, res, next) {
   console.error(err.message);
   if (!err.statusCode) err.statusCode = 500;
   res.status(err.statusCode).send(err.message);
 });
-
+*/
 // env variable port created
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, () =>
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`),
