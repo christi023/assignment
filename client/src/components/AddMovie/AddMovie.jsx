@@ -87,7 +87,7 @@ export default class AddMovie extends Component {
       console.log(data);
       this.setState({ movies: data.response });
     });
-  }  
+  }
 
   // setting functions
   resetForm() {
@@ -169,7 +169,7 @@ export default class AddMovie extends Component {
       if (this.state.movies.length > 0) {
         return (
           <MovieTable
-            employees={this.state.movies}
+            movies={this.state.movies}
             deleteHandler={this.deleteHandler}
             showEditForm={this.showEditForm}
           />
@@ -200,7 +200,6 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    
     return (
       <>
         <div className="App">

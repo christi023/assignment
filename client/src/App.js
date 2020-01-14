@@ -3,9 +3,7 @@ import React, { Component } from 'react';
 import AddMovie from './components/AddMovie/AddMovie';
 import Home from './components/Home/Home';
 import MovieService from './components/MovieService/MovieService';
-//import MovieHome from './components/MovieHome/MovieHome';
-import Search from './components/Search/Search';
-//import MovieInfo from './components/MovieInfo/MovieInfo';
+import Movie from './components/Movie/Movie';
 
 import { Route, NavLink, HashRouter } from 'react-router-dom';
 
@@ -69,7 +67,7 @@ export default class App extends Component {
                 <Route path="/addMovie" component={AddMovie} />
                 <Route path="/MovieService" component={MovieService} />
                 <div className="App">
-                  <Route path="/movie" exact component={Search} />
+                  <Route path="/movie" exact component={Movie} />
                 </div>
               </div>
             </div>

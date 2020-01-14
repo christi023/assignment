@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Movie from '../Movie/Movie';
-// Movie SERVICES
+
 import MovieApi from '../../MovieAPI';
 
 function MovieService() {
@@ -18,13 +17,22 @@ function MovieService() {
     setmovies(res);
   };
 
+  const DEFAULT_PLACEHOLDER_IMAGE =
+    'https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg';
+
   const renderMovie = movie => {
+    const poster = movie.Poster === 'N/A' ? DEFAULT_PLACEHOLDER_IMAGE : movie.Poster;
+
     return (
       <>
-        <Movie />
-        <li key={movie._id} className="list__item movie">
+        <li className="list__item movie">
           <h3 className="movie__title">{movie.title}</h3>
-          <p className="movie__description">{movie.description}</p>
+          <div>
+            <img width="200" alt={`The movie titled: ${movie.Title}`} src={poster} />
+          </div>
+          <p key={movie._id} className="movie__description">
+            {movie.description}
+          </p>
           <p className="movie__length">{movie.length}</p>
           <p className="movie__year">{movie.year}</p>
           <p className="movie__genre">{movie.genre}</p>
@@ -48,4 +56,5 @@ function MovieService() {
     </div>
   );
 }
+
 export default MovieService;

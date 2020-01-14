@@ -1,20 +1,36 @@
-import React from 'react';
+/*import React, { Component } from 'react';
+//import Movie from '../Movie/Movie';
 
+export default class Search extends Component {
+  constructor() {
+    super();
 
-function Search({ handleInput, search }) {
-  return (
-    <section className="searchbox-wrap">
-      <input
-        type="text"
-        placeholder="Search for a movie..."
-        className="searchbox"
-        onChange={handleInput}
-        onKeyPress={search}
-      />
-    </section>
-  );
-}
+    this.onSubmit = this.onSubmit.bind(this);
+  }
 
-export default Search;
-
-
+  onSubmit(event) {
+    event.preventDefault();
+    let search = this.input.value;
+    console.log(search);
+  }
+  render() {
+    return (
+      <div className="App">
+        <div className="jumbotron">
+          <div className="container">
+            <div className="row">
+              <h2 className="col-12 text-center">Search Movie Here</h2>
+              <form onSubmit={this.onSubmit} className="col-12">
+                <input
+                  className="col-12 form-control"
+                  placeholder="Search Movies...."
+                  ref={input => (this.input = input)}
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}*/
