@@ -4,7 +4,7 @@ import AddMovie from './components/AddMovie/AddMovie';
 import Home from './components/Home/Home';
 import MovieService from './components/MovieService/MovieService';
 import Movie from './components/Movie/Movie';
-
+import MovieList from './components/MovieList/MovieList';
 import { Route, NavLink, HashRouter } from 'react-router-dom';
 
 // style imports
@@ -56,6 +56,10 @@ export default class App extends Component {
                 </li>
 
                 <li>
+                  <NavLink to="/results">SearchResults</NavLink>
+                </li>
+
+                <li>
                   <NavLink to="/addMovie">AddMovie</NavLink>
                 </li>
                 <li>
@@ -64,6 +68,7 @@ export default class App extends Component {
               </ul>
               <div className="content">
                 <Route path="/Home" component={Home} />
+                <Route path="/results" component={MovieList}></Route>
                 <Route path="/addMovie" component={AddMovie} />
                 <Route path="/MovieService" component={MovieService} />
                 <div className="App">

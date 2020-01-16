@@ -1,39 +1,23 @@
-import React, { useState } from 'react';
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+// styles
 import './MovieSearch.css';
 
-const Search = props => {
-  const [searchValue, setSearchValue] = useState('');
-
-  const handleSearchInputChanges = e => {
-    setSearchValue(e.target.value);
-  };
-
-  const resetInputField = () => {
-    setSearchValue('');
-  };
-
-  const callSearchFunction = e => {
-    e.preventDefault();
-    props.search(searchValue);
-    resetInputField();
+const MovieSearch = ({ movie }) => {
+  const handleChange = () => {
+    sessionStorage.setItem('movieId', movie.imdbID);
   };
 
   return (
-    <div className="App">
-      <div className="jumbotron">
-        <div className="container">
-          <div className="row">
-            <h2 className="col-12 text-center">Search Movie Here</h2>
-            <form className="search">
-              <input value={searchValue} onChange={handleSearchInputChanges} type="text" />
-              <input onClick={callSearchFunction} type="submit" value="SEARCH" />
-            </form>
-          </div>
-        </div>
-      </div>
+    // setup for movie search result
+    <div className="movie-card">
+      <img src={movie.Poster} alt="" />
+      <h3>{movie.Title}</h3>
+      <Link onClick={handleChange} to="/results">
+        View More
+      </Link>
     </div>
   );
 };
 
-export default Search;
+export default MovieSearch;
