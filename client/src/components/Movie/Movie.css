@@ -11,7 +11,7 @@
 }
 
 .search-button:hover {
-  background: goldenrod;
+  background: purple;
   color: black;
 }
 
@@ -21,12 +21,13 @@
   align-items: center;
   background: black;
   min-height: 15vh;
+  width: 60em;
 }
 
 .search-bar {
   width: 60%;
   height: 5vh;
-  padding: 15px;
+  padding: 20px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   color: rgb(0, 0, 0);
@@ -39,16 +40,10 @@
 }
 
 .search-button {
-  width: 80px;
-  height: 5vh;
-  background: blueviolet;
-  outline: none;
-  border: none;
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
-  font-weight: bold;
-  color: whitesmoke;
-  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 2px;
+  padding: 10px 40px;
+  border-radius: 30px;
+  color: #fff;
+  background-color: blue;
 }

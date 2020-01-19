@@ -35,7 +35,7 @@ const Movie = () => {
 
   return (
     <div>
-      <div className="App">
+      <div className="App1">
         <div className="jumbotron">
           <div className="container">
             <div className="row">

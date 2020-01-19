@@ -4,6 +4,7 @@ const express = require('express');
 const movie = require('./routes/movie');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
+const moviedb = require('./routes/moviedb');
 const path = require('path');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -38,6 +39,7 @@ app.use(cors());
 app.use('/api/movie', movie);
 app.use('/api/users', users);
 app.use('/api/auth', auth);
+app.use('/api/moviedb', moviedb);
 /*app.use(function(err, req, res, next) {
   console.error(err.message);
   if (!err.statusCode) err.statusCode = 500;

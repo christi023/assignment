@@ -12,7 +12,7 @@ const MovieList = () => {
 
   useEffect(() => {
     getMovie(movieId);
-  }, []);
+  }, [movieId]);
 
   // getting movie with details
   const getMovie = async id => {
@@ -21,15 +21,28 @@ const MovieList = () => {
     setMovie(movieDetails);
   };
 
+  function sayHello() {
+    console.log('hello');
+  }
+
   return (
     <div className="movie-page">
       <h1>{movie.Title}</h1>
       <div className="movie-content">
         <div className="poster">
           <img src={movie.Poster} alt="" />
-          <a href={`http://imdb.com/title/${movieId}`} target="_blank">
-            View IMDB
+          <a
+            className="bg-danger"
+            href={`http://imdb.com/title/${movieId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            IMDB
           </a>
+          <button onClick={sayHello} type="submit" className="btn btn-info">
+            Save
+          </button>
+
           <Link to="/movie">Back</Link>
         </div>
         <div>
@@ -40,15 +53,6 @@ const MovieList = () => {
           <p>
             <strong>Year: </strong>
             {movie.Year}
-          </p>
-
-          <p>
-            <strong>Runtime: </strong>
-            {movie.Runtime}
-          </p>
-          <p>
-            <strong>Released: </strong>
-            {movie.Released}
           </p>
           <p>
             <strong>Genre: </strong>

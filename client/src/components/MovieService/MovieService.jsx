@@ -7,7 +7,7 @@ function MovieService() {
 
   useEffect(() => {
     if (!movies) {
-      getMovies();
+      getMovies(); // calling this function from MovieApi
     }
   });
 
@@ -25,14 +25,12 @@ function MovieService() {
 
     return (
       <>
-        <li className="list__item movie">
+        <li key={movie._id} className="list__item movie">
           <h3 className="movie__title">{movie.title}</h3>
           <div>
             <img width="200" alt={`The movie titled: ${movie.Title}`} src={poster} />
           </div>
-          <p key={movie._id} className="movie__description">
-            {movie.description}
-          </p>
+          <p className="movie__description">{movie.description}</p>
           <p className="movie__length">{movie.length}</p>
           <p className="movie__year">{movie.year}</p>
           <p className="movie__genre">{movie.genre}</p>

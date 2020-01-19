@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import MovieService from './components/MovieService/MovieService';
 import Movie from './components/Movie/Movie';
 import MovieList from './components/MovieList/MovieList';
+import AppCover from './components/AppCover/AppCover';
 import { Route, NavLink, HashRouter } from 'react-router-dom';
 
 // style imports
@@ -46,6 +47,11 @@ export default class App extends Component {
               <h1>Movie App</h1>
               <ul className="header">
                 <li>
+                  <NavLink exact to="/cover">
+                    Cover
+                  </NavLink>
+                </li>
+                <li>
                   <NavLink exact to="/Home">
                     Home
                   </NavLink>
@@ -66,7 +72,9 @@ export default class App extends Component {
                   <NavLink to="/MovieService">SavedMovies</NavLink>
                 </li>
               </ul>
+
               <div className="content">
+                <Route path="/cover" component={AppCover} />
                 <Route path="/Home" component={Home} />
                 <Route path="/results" component={MovieList}></Route>
                 <Route path="/addMovie" component={AddMovie} />
