@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-
-// Packages
-import 'tachyons';
-import Particles from 'react-particles-js';
-//import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
 // components
 import MovieTable from '../MovieTable/MovieTable';
 import Form from '../Form/Form';
 import Message from '../Message/Message';
-
+//import MovieList from '../MovieList/MovieList'
 import MovieAPI from '../../MovieAPI';
 import './AddMovie.css';
+
+// Packages
+import 'tachyons';
+import Particles from 'react-particles-js';
 
 const ParticleParams = {
   particles: {
@@ -68,21 +66,6 @@ export default class AddMovie extends Component {
   }
 
   componentDidMount() {
-    /*componentDidMount() {
-      axios
-        .get('http://localhost:5000/movies')
-        .then(response => {
-          if (response.data.length > 0) {
-            this.setState({
-              movies: response.data.map(movie => movie.title),
-              title: response.data[0].title,
-            });
-          }
-        })
-        .catch(error => {
-          console.log(error);
-        });*/
-
     MovieAPI.getMovies().then(data => {
       console.log(data);
       this.setState({ movies: data.response });

@@ -43,7 +43,7 @@ export default class Signin extends Component {
           //return null;
           //} else if (user)           {
           this.props.loadUser(user);
-          this.props.onRouteChange('/addMovie');
+          this.props.onRouteChange('/movie');
         }
       });
   };
@@ -102,10 +102,7 @@ export default class Signin extends Component {
               />
             </div>
             <div className="lh-copy mt3">
-              <p
-                onClick={() => onRouteChange('/register')}
-                className="f6 link dim black db pointer"
-              >
+              <p onClick={() => onRouteChange('register')} className="f6 link dim black db pointer">
                 No Account? Register
               </p>
             </div>
@@ -115,5 +112,3 @@ export default class Signin extends Component {
     );
   }
 }
-
-

@@ -62,14 +62,14 @@ export default class App extends Component {
                 </li>
 
                 <li>
-                  <NavLink to="/results">SearchResults</NavLink>
+                  <NavLink to="/results">Saved Movies</NavLink>
                 </li>
 
                 <li>
                   <NavLink to="/addMovie">AddMovie</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/MovieService">SavedMovies</NavLink>
+                  <NavLink to="/MovieService">Movie Details</NavLink>
                 </li>
               </ul>
 

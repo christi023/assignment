@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { Card, CardBody } from 'reactstrap';
 import MovieApi from '../../MovieAPI';
 
 function MovieService() {
@@ -17,27 +17,26 @@ function MovieService() {
     setmovies(res);
   };
 
-  const DEFAULT_PLACEHOLDER_IMAGE =
-    'https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg';
-
   const renderMovie = movie => {
-    const poster = movie.Poster === 'N/A' ? DEFAULT_PLACEHOLDER_IMAGE : movie.Poster;
-
     return (
       <>
-        <li key={movie._id} className="list__item movie">
-          <h3 className="movie__title">{movie.title}</h3>
-          <div>
-            <img width="200" alt={`The movie titled: ${movie.Title}`} src={poster} />
-          </div>
-          <p className="movie__description">{movie.description}</p>
-          <p className="movie__length">{movie.length}</p>
-          <p className="movie__year">{movie.year}</p>
-          <p className="movie__genre">{movie.genre}</p>
-          <p className="movie_poster">{movie.poster}</p>
-          <p className="movie__hasSeen">{movie.hasSeen}</p>
-          <p className="movie__isFavourite">{movie.isFavourite}</p>
-        </li>
+        <div className="card-body">
+          <Card>
+            <CardBody>
+              <li key={movie._id} className="list__item movie">
+                <h3 className="movie__title">{movie.title}</h3>
+
+                <p className="movie__description">{movie.description}</p>
+                <p className="movie__length">{movie.length}</p>
+                <p className="movie__year">{movie.year}</p>
+                <p className="movie__genre">{movie.genre}</p>
+                <p className="movie_poster">{movie.poster}</p>
+                <p className="movie__hasSeen">{movie.hasSeen}</p>
+                <p className="movie__isFavourite">{movie.isFavourite}</p>
+              </li>
+            </CardBody>
+          </Card>
+        </div>
       </>
     );
   };
@@ -54,5 +53,4 @@ function MovieService() {
     </div>
   );
 }
-
 export default MovieService;

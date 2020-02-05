@@ -12,7 +12,7 @@ export default {
 
   // delete method
   deleteMovie: async _id => {
-    const res = await fetch(`/api/moviedb${_id}`, {
+    const res = await fetch(`/api/moviedb/${_id}`, {
       method: 'delete',
     });
     const data = await res.json();

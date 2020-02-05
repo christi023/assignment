@@ -10,10 +10,8 @@ export default class MovieHome extends Component {
     selectedPostId: null,
   };
 
-  componentDidMount() {}
-
   getMovies = () => {
-    axios.get('http://localhost:5001/api/movie/').then(response => {
+    axios.get('http://localhost:5001/api/movie').then(response => {
       this.setState({ movies: response.data.movie });
     });
   };

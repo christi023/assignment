@@ -10,7 +10,6 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const config = require('config');
 const connectDB = require('./config/db');
-//const handlebars = require('express-handlebars');
 
 // load env vars
 dotenv.config({ path: './config/config.env' });
@@ -27,9 +26,13 @@ const app = express();
 //body parser adding middleware
 app.use(express.json());
 
-app.get('/', function(req, res) {
+/*app.get('/', function(req, res) {
   res.json({ movies: 'Build your movie list' });
-});
+});*/
+
+/*app.get('/', function(req, res) {
+  res.json({ moviedbs: 'Build your movie list' });
+});*/
 
 // Enable cors
 app.use(cors());
@@ -40,12 +43,13 @@ app.use('/api/movie', movie);
 app.use('/api/users', users);
 app.use('/api/auth', auth);
 app.use('/api/moviedb', moviedb);
-/*app.use(function(err, req, res, next) {
+
+app.use(function(err, req, res, next) {
   console.error(err.message);
   if (!err.statusCode) err.statusCode = 500;
   res.status(err.statusCode).send(err.message);
 });
-*/
+
 // env variable port created
 const PORT = process.env.PORT || 5001;
 
