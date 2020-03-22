@@ -66,7 +66,7 @@ export default class ResultBody extends Component {
   delete = movieId => {
     const movies = this.state.movies.filter(movies => movies._id !== movieId);
     this.setState({ movies: movies });
-    alert('clicked');
+    //alert('clicked');
   };
 
   render() {
